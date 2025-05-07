@@ -1,11 +1,13 @@
 // components/DoctorCard.tsx
 
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { IDoctor } from "@/lib/interfaces/idoctor";
 import { FaUserDoctor, FaPhone, FaLocationDot, FaCheck } from "react-icons/fa6";
 import { GoStarFill } from "react-icons/go";
 import { IoMdHeart } from "react-icons/io";
 import axios from "axios";
+
+import { UserContext } from "@/contexts/userContext";
 
 interface IProps {
   doctor: IDoctor;
@@ -17,7 +19,11 @@ const DoctorCard = (props: IProps) => {
     doctor.favourite || false
   );
 
+  const { user } = useContext(UserContext);
+
   const addFavouriteDoctor = () => {
+    if (!user)
+      return alert("Please sign in to add doctors to your favourite list");
     axios
       .post(
         `${process.env.SERVER_URL}/api/favourites/${doctor._id}`,
