@@ -1,2 +1,4 @@
 /doctor-directory/node_modules
+/doctor-directory/.env
 /server/node_modules
+
