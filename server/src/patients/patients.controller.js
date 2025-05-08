@@ -103,6 +103,7 @@ const getPatientData = async (req, res) => {
       });
     }
     const patient = await Patient.findOne({ email: decoded.email });
+    console.log({ patient });
     return res.status(200).json({
       patientData: {
         first_name: patient.first_name,

@@ -1,7 +1,8 @@
 // app/layout.tsx
 import "./globals.css";
 import type { Metadata } from "next";
-import Providers from "./providers"; // <- Client wrapper
+import Providers from "./providers/providers"; // <- Client wrapper
+import LenisScrollProvider from "./providers/lenisProvider";
 
 export const metadata: Metadata = {
   title: "MEDICONNECT",
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Providers>{children}</Providers>
+        <LenisScrollProvider>
+          <Providers>{children}</Providers>
+        </LenisScrollProvider>
       </body>
     </html>
   );

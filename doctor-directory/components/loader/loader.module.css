@@ -40,7 +40,7 @@
 .threeBody {
   --uib-size: 35px;
   --uib-speed: 0.8s;
-  --uib-color: #34aaf6;
+  --uib-color: rgb(0, 216, 160);
   position: relative;
   display: inline-block;
   height: var(--uib-size);

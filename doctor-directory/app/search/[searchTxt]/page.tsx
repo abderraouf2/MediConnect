@@ -75,11 +75,17 @@ export default function page() {
       <h1 className="text-3xl font-bold text-left mb-8">
         Search Results for: {decoded}
       </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-        {doctors.map((doctor) => (
-          <DoctorCard key={doctor._id} doctor={doctor} />
-        ))}
-      </div>
+      {doctors.length > 0 ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          {doctors.map((doctor) => (
+            <DoctorCard key={doctor._id} doctor={doctor} />
+          ))}
+        </div>
+      ) : (
+        <p className=" text-center text-xl font-semibold opacity-50 my-10">
+          No Doctors Found.
+        </p>
+      )}
       {/* Loading Indicator */}
       {loading && <div className="text-center my-4">Loading...</div>}
       {/* No more doctors message */}
